@@ -1,0 +1,92 @@
+// LIBRARIES EDDL AND PyEDDL
+
+https://deephealthproject.github.io/eddl/index.html
+https://github.com/deephealthproject/eddl
+
+https://deephealthproject.github.io/pyeddl/
+https://github.com/deephealthproject/pyeddl
+
+
+// DOCKER
+
+Installation:
+> sudo apt install docker.io
+> sudo groupadd docker               (https://docs.docker.com/engine/install/linux-postinstall/)
+> sudo usermod -aG docker $USER
+> newgrp docker 
+> docker pull dhealth/pylibs:latest
+
+Useful references:
+https://www.geeksforgeeks.org/how-to-run-a-python-script-using-docker/
+
+
+Run DeepHealth libraries code with docker:
+> docker run -it --rm -v /mnt/vol/data:/data:ro dhealth/pylibs /usr/bin/python3
+>>> import pyeddl
+>>> pyeddl.VERSION
+(should print the version)
+>>> import pyecvl
+>>> pyecvl.VERSION
+(should print the version)
+
+
+// C4SCIENCE:
+
+Repository: https://c4science.ch/diffusion/11226/  -- My repository
+Reference:  https://c4science.ch/diffusion/10390/  -- MS image segmentation reference
+Reference:  https://c4science.ch/diffusion/9868/   -- DeepHealth_UC13_seizure_detection
+
+Clone with SSH key: 
+git clone git@c4science.ch:/diffusion/11226/.git --config core.sshCommand="ssh -i /home/francisco/Downloads/id_rsa_phabricator.key"
+
+Reference for configuring ssh private key for each repository: 
+https://www.devdungeon.com/content/how-specify-ssh-key-git-repository
+
+// ESL SERVER:
+
+Rules:
+1.- /home is only supposed to store small configuration files. 
+2.- Use "/scrap/users/yourname" for any fast-access local data you may require for your experiments (without back-up), or to install local packages with conda or pip. 
+3.- Use "/shares/eslfiler1/home/yourname" to store data for which you need backup (it is a network filesystem, so it is much slower than /scrap). 
+4.- Another larger network volume without backup that may be used to store intermediate results is "/shares/eslfiler1/scratch".
+
+Connect to EPFL VPN
+> ssh blazquez@eslsrv12.epfl.ch 
+
+Copy file from local to server:
+> scp <localfile> blazquez@eslsrv12.epfl.ch:<path_in_server>
+
+Setup the running enviroment:
+> conda create --prefix /scrap/users/blazquez/.conda/envs/pyeddl
+> conda activate /scrap/users/blazquez/.conda/envs/pyeddl
+> conda install -c dhealth pyeddl-gpu
+
+Execution:
+- My laptop: 0.1254 secs/batch
+- Server:    7.6003 secs/batch
+
+Optional configuration
+> create dataset folder in /scrap/users/blazquez
+
+// GLOBAL VISION DOCUMENTATION:
+
+Image segmentation:
+https://github.com/mrgloom/awesome-semantic-segmentation
+https://missinglink.ai/guides/computer-vision/image-segmentation-deep-learning-methods-applications/
+https://tuatini.me/practical-image-segmentation-with-unet/
+
+Multiple Sclerosis MRI segmentation:
+https://portal.fli-iam.irisa.fr/msseg-challenge/overview      (MICCAI MSSEG Challenge)
+https://portal.fli-iam.irisa.fr/msseg-challenge/workshop-day  (MICCAI MSSEG Docs and results)
+
+https://github.com/sergivalverde/nicMSlesions			(https://arxiv.org/pdf/1805.12415.pdf)
+https://github.com/marianocabezas/miccai_challenge2016	(http://marianocabezas.github.io/miccai_challenge2016/)
+https://github.com/Fjaviervera/MS-challenge-2016		(https://www.overleaf.com/project/5c986fad25c3584dbc987293)
+
+// DATASETS:
+
+MICCAI 2016  http://miccai2016.org/en/
+ISBI         http://brainiac2.mit.edu/isbi_challenge/
+CIFAR10      https://www.cs.toronto.edu/~kriz/cifar.html
+MNIST        https://en.wikipedia.org/wiki/MNIST_database
+
