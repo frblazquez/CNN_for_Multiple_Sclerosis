@@ -9,83 +9,32 @@
 # References:
 # https://github.com/deephealthproject/use-case-pipelines/blob/3rd_hackathon/python/ms_segmentation_training.py
 
-import argparse
-import sys
 import pyeddl.eddl as eddl
-import unet
-
 from pyeddl.tensor import Tensor
+from double_unet   import double_unet
 
 
-ISBI_PATH   = "/home/francisco/Documents/Universidad/5º_Carrera/TFG_Computer_Science/datasets/isbi/train/"
-MEM_CHOICES = ("low_mem", "mid_mem", "full_mem")
+ISBI_PATH  = "/home/francisco/Documents/Universidad/5_Carrera/TFG_Computer_Science/datasets/isbi/train/"
+TRAIN_SIZE = 10
 
+imgs_path = [ISBI_PATH + 'image_lq/'+str(i)+'.png' for i in range(TRAIN_SIZE)]
+masks_path= [ISBI_PATH + 'label_lq/'+str(i)+'.png' for i in range(TRAIN_SIZE)]
 
-def main(args):
-    size = [256, 256] 
-    in_  = eddl.Input([3, size[0], size[1]])
-    net  = unet.unet(in_)
+train_imgs = Tensor.fromarray([Tensor.load(img).getdata()          for img in imgs_path])
+train_masks= Tensor.fromarray([Tensor.load(msk).div(255).getdata() for msk in masks_path])
 
-    eddl.build(
-        net,
-        eddl.sgd(0.01, 0.9),
-        ["soft_cross_entropy"],
-        ["categorical_accuracy"],
-        eddl.CS_GPU(mem=args.mem) if args.gpu else eddl.CS_CPU(mem=args.mem)
-    )
+net = double_unet(eddl.Input([1, 256, 256]))
 
-    eddl.summary(net)
-    eddl.setlogfile(net, "unet.log")
-    eddl.plot(net, "unet.pdf")
+eddl.build(
+    net,
+    eddl.nadam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=1e-07, schedule_decay=0.004), 
+    ["binary_cross_entropy"],
+    ["dice"],
+    eddl.CS_CPU(mem="low_mem")
+)
 
-    #for i in range(25):
-    #    x_train = Tensor.load(ISBI_PATH+"image/"+str(i)+".png")
-    #    y_train = Tensor.load(ISBI_PATH+"label/"+str(i)+".png")
-    #
-    #for i in range(25,30):
-    #    x_test = Tensor.load(ISBI_PATH+"image/"+str(i)+".png")
-    #    y_test = Tensor.load(ISBI_PATH+"label/"+str(i)+".png")
+eddl.summary(net)
+#eddl.setlogfile(net, "unet.log")
+#eddl.plot(net, "unet.pdf")
 
-
-    #x_train = []
-    #y_train = []
-    #for i in range(25):
-    #    x_train.append(Tensor.load(ISBI_PATH+"image/"+str(i)+".png"))
-    #    y_train.append(Tensor.load(ISBI_PATH+"label/"+str(i)+".png"))
-    #
-    #x_test = []
-    #y_test = []
-    #for i in range(25,30):
-    #    x_test.append(Tensor.load(ISBI_PATH+"image/"+str(i)+".png"))
-    #    y_test.append(Tensor.load(ISBI_PATH+"label/"+str(i)+".png"))
-
-    training_augs   = ecvl.SequentialAugmentationContainer([ecvl.AugResizeDim(size)])
-    validation_augs = ecvl.SequentialAugmentationContainer([ecvl.AugResizeDim(size)])
-    dataset_augs    = ecvl.DatasetAugmentations([training_augs, validation_augs, None])
-
-    print('Reading dataset')
-    d = ecvl.DLDataset(args.in_ds, args.batch_size, dataset_augs, ecvl.ColorType.none, ecvl.ColorType.none)
-    #v = MSVolume(d, args.n_channels)  # MSVolume takes a reference to DLDataset
-
-    # Prepare tensors which store batches
-    #x = Tensor([args.batch_size, args.n_channels, size[0], size[1]])
-    #y = Tensor([args.batch_size, args.n_channels, size[0], size[1]])
-
-    #for i in range(args.epochs):
-    #    eddl.fit(net, [x_train], [y_train], args.batch_size, 1)
-    #    eddl.evaluate(net, [x_test], [y_test], bs=args.batch_size)
-
-
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('in_ds', metavar='INPUT_DATASET')
-    parser.add_argument('--epochs', type=int, metavar='INT', default=100)
-    parser.add_argument('--batch_size', type=int, metavar='INT', default=16)
-    parser.add_argument('--num_classes', type=int, metavar='INT', default=1)
-    parser.add_argument('--n_channels', type=int, metavar='INT', default=1, help='Number of slices to stack together and use as input')
-    parser.add_argument('--learning_rate', type=float, default=1e-4)
-    parser.add_argument('--size', type=int, metavar='INT', default=256, help='Size of input slices')
-    parser.add_argument('--gpu', nargs='+', type=int, required=False, help='`--gpu 1 1` to use two GPUs')
-    parser.add_argument('--out-dir', metavar='DIR', help='if set, save images in this directory')
-    parser.add_argument('--ckpts', type=str)
-    main(parser.parse_args())
+eddl.fit(net, [train_imgs], [train_masks], 2, 5)
