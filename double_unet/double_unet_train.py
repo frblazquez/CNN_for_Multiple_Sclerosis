@@ -11,7 +11,7 @@
 
 import pyeddl.eddl as eddl
 from pyeddl.tensor import Tensor
-from unet          import unet
+from double_unet   import double_unet
 
 
 ISBI_PATH  = "/home/francisco/Documents/Universidad/5_Carrera/TFG_Computer_Science/datasets/isbi/train/"
@@ -23,7 +23,7 @@ masks_path= [ISBI_PATH + 'label_lq/'+str(i)+'.png' for i in range(TRAIN_SIZE)]
 train_imgs = Tensor.fromarray([Tensor.load(img).getdata()          for img in imgs_path])
 train_masks= Tensor.fromarray([Tensor.load(msk).div(255).getdata() for msk in masks_path])
 
-net = unet(eddl.Input([1, 256, 256]))
+net = double_unet(eddl.Input([1, 256, 256]))
 
 eddl.build(
     net,
