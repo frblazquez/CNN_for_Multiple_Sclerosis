@@ -91,39 +91,21 @@ def aspp(in_, filter):
     return out
 
 
-####################### squeeze_excite_block from 2020-CBMS-DoubleU-Net, Keras #######################
-
-#def squeeze_excite_block(inputs, ratio=8):
-#    init = inputs
-#    channel_axis = -1
-#    filters = init.shape[channel_axis]
-#    se_shape = (1, 1, filters)
-#
-#    se = GlobalAveragePooling2D()(init)
-#    se = Reshape(se_shape)(se)
-#    se = Dense(filters // ratio, activation='relu', kernel_initializer='he_normal', use_bias=False)(se)
-#    se = Dense(filters, activation='sigmoid', kernel_initializer='he_normal', use_bias=False)(se)
-#
-#    x = Multiply()([init, se])
-#    return x
-
-####################### squeeze_excite_block from 2020-CBMS-DoubleU-Net, EDDL #######################
-
 def squeeze_excite_block(in_, ratio=8):
-    
     init = in_
-
-    channel_axis = 1
-    filters = init.output.shape[channel_axis]
-    reshape = [filters]
+    filters = init.output.shape[1] # Take the number of channels
     
     out = eddl.GlobalAveragePool(init)
-    out = eddl.Reshape(out, reshape)
+    out = eddl.Reshape(out, [filters])
     
     # kernel_initializer='he_normal' option not available!
     out = eddl.ReLu(eddl.Dense(out, filters//ratio, use_bias=False))
     out = eddl.Sigmoid(eddl.Dense(out, filters, use_bias=False))
     
+    # TODO: Problem in the multiplication shape!    
+    # TODO: Analize keras Multiply() against EDDL Mult()
+    out = eddl.Reshape(out, [filters,1,1])
+
     return eddl.Mult(init, out)
 
 
@@ -196,21 +178,21 @@ def encoder2(in_):
 # https://github.com/DebeshJha/2020-CBMS-DoubleU-Net/blob/master/model.py
 def double_unet(in_):
 
-    # Encode-ASPP-Decode 1, first U-Net
+    # Encode 1-ASPP-Decode 1, first U-Net
     vgg19_out, vgg19_blocks_out = encoder1(in_)
     aspp1_out = aspp(vgg19_out, 64)
     output1   = decoder1(aspp1_out, vgg19_blocks_out)
     
-    # Encode-ASPP-Decode 2, second U-Net
+    # Encode 2-ASPP-Decode 2, second U-Net
     multiply  = eddl.Mult(in_, output1)
     encoder_out, encoder_blocks_out = encoder2(multiply)
     aspp2_out = aspp(encoder_out, 64)
     output2   = decoder2(aspp2_out, vgg19_blocks_out, encoder_blocks_out)
     
-    # Double U-Net output
-    out = eddl.Concat([output1, output2])
+    # Double U-Net output if we want to have output1 also
+    # out = eddl.Concat([output1, output2])
     
-    return eddl.Model([in_], [out])
+    return eddl.Model([in_], [output2])
 
 
 
@@ -223,7 +205,7 @@ if __name__ == "__main__":
 
     eddl.build(
         model,
-        eddl.nadam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=1e-07, schedule_decay=0.004), # Consider modifying 'schedule_decay'
+        eddl.nadam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=1e-07, schedule_decay=0.004), 
         ["binary_cross_entropy"],
         ["dice"],
         eddl.CS_CPU()
