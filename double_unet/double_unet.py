@@ -11,9 +11,8 @@
 # https://github.com/DebeshJha/2020-CBMS-DoubleU-Net
 
 
-import numpy       as np
 import pyeddl.eddl as eddl
-from pyeddl.tensor import Tensor
+
 
 # Names for different VGG19 layers 
 VGG19_BLOCK_1 = "vgg19_block_1"
@@ -92,16 +91,6 @@ def aspp(in_, filter):
     return out
 
 
-
-# TODO: Problem in the multiplication shape!    
-# TODO: Analize keras Multiply() against EDDL Mult()
-def multiply(layer1, layer2):
-    layer1_array = layer1.output.getdata()
-    layer2_array = layer2.output.getdata()
-    result_array = np.multiply(layer1_array, layer2_array)
-    return Tensor.fromarray(result_array)
-    
-
 def squeeze_excite_block(in_, ratio=8):
     init = in_
     filters = init.output.shape[1] # Take the number of channels
@@ -116,11 +105,8 @@ def squeeze_excite_block(in_, ratio=8):
     # TODO: Problem in the multiplication shape!    
     # TODO: Analize keras Multiply() against EDDL Mult()
     out = eddl.Reshape(out, [filters,1,1])
-    out.output = multiply(out, init)
 
-    return out
-
-
+    return eddl.Mult(init, out)
 
 
 def decoder1(in_, vgg19_skips):
