@@ -15,7 +15,7 @@ from unet          import unet
 
 
 ISBI_PATH  = "/home/francisco/Documents/Universidad/5_Carrera/TFG_Computer_Science/datasets/isbi/train/"
-TRAIN_SIZE = 10
+TRAIN_SIZE = 30
 
 imgs_path = [ISBI_PATH + 'image_lq/'+str(i)+'.png' for i in range(TRAIN_SIZE)]
 masks_path= [ISBI_PATH + 'label_lq/'+str(i)+'.png' for i in range(TRAIN_SIZE)]
@@ -34,8 +34,8 @@ eddl.build(
 )
 
 eddl.summary(net)
-#eddl.setlogfile(net, "unet.log")
-#eddl.plot(net, "unet.pdf")
+eddl.setlogfile(net, "unet.log")
+eddl.plot(net, "unet.pdf")
 
 eddl.fit(net, [train_imgs], [train_masks], 2, 5)
 

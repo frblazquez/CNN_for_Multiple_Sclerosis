@@ -4,7 +4,7 @@
 # Deephealth project
 #
 # Description:
-# U-Net training with the ISBI challenge dataset
+# U-Net training with the MICCAI 2016 segmentation challenge dataset
 # 
 # References:
 # https://github.com/deephealthproject/use-case-pipelines/blob/3rd_hackathon/python/ms_segmentation_training.py
@@ -24,15 +24,15 @@ TRAIN_SIZE = 5
 imgs_path = [MICCAI_PATH + 'preprocessed/s'+str(i)+'/FLAIR_preprocessed.nii' for i in range(1,TRAIN_SIZE)]
 masks_path= [MICCAI_PATH + 'unprocessed/s'+str(i)+'/Consensus.nii'           for i in range(1,TRAIN_SIZE)]
 
-imgs_np = [np.array(nib.load(img).dataobj) for img in imgs_path]
-msks_np = [np.array(nib.load(msk).dataobj) for msk in masks_path]
+# TODO: Out of the whole 144 possilbe slices we only take one, improve in the future!
+imgs_np = [np.array(nib.load(img).dataobj)[70,:,:] for img in imgs_path]
+msks_np = [np.array(nib.load(msk).dataobj)[70,:,:] for msk in masks_path]
 msks_np = [msk/msk.max() for msk in msks_np]
 
 train_imgs = Tensor.fromarray(imgs_np)
 train_masks= Tensor.fromarray(msks_np)
 
-# If the shape is [1,144,512,512] then we have to slice the data! 
-net = unet(eddl.Input([144, 512, 512]))
+net = unet(eddl.Input([1, 512, 512]))
 
 eddl.build(
     net,
@@ -47,6 +47,6 @@ eddl.setlogfile(net, "unet.log")
 eddl.plot(net, "unet.pdf")
 
 eddl.fit(net, [train_imgs], [train_masks], 1, 2)
-eddl.save(net, "weights.bin")
+eddl.save(net, "weights_miccai.bin")
 
 

@@ -102,10 +102,15 @@ def squeeze_excite_block(in_, ratio=8):
     out = eddl.ReLu(eddl.Dense(out, filters//ratio, use_bias=False))
     out = eddl.Sigmoid(eddl.Dense(out, filters, use_bias=False))
     
-    # TODO: Problem in the multiplication shape!    
-    # TODO: Analize keras Multiply() against EDDL Mult()
+    # Reshaping/Concatenating for doing Mult(init, out)
+    shape = init.output.shape[-1]
     out = eddl.Reshape(out, [filters,1,1])
 
+    while shape != 1:
+        shape = shape // 2
+        out = eddl.Concat([out, out], axis=2)
+        out = eddl.Concat([out, out], axis=3)
+        
     return eddl.Mult(init, out)
 
 
