@@ -103,14 +103,19 @@ def squeeze_excite_block(in_, ratio=8):
     out = eddl.Sigmoid(eddl.Dense(out, filters, use_bias=False))
     
     # Reshaping/Concatenating for doing Mult(init, out)
-    shape = init.output.shape[-1]
+    #shape = init.output.shape[-1]
     out = eddl.Reshape(out, [filters,1,1])
 
-    while shape != 1:
-        shape = shape // 2
-        out = eddl.Concat([out, out], axis=2)
-        out = eddl.Concat([out, out], axis=3)
-        
+    #while shape > 1:
+    #    out = eddl.Concat([out, out], axis=2)
+    #    out = eddl.Concat([out, out],  axis=3)
+    #    shape = shape // 2
+    
+    #print("===============")
+    #print(init.output.shape)
+    #print( out.output.shape)
+    #print("===============")
+
     return eddl.Mult(init, out)
 
 
@@ -193,7 +198,7 @@ def double_unet(in_):
     encoder_out, encoder_blocks_out = encoder2(multiply)
     aspp2_out = aspp(encoder_out, 64)
     output2   = decoder2(aspp2_out, vgg19_blocks_out, encoder_blocks_out)
-    
+
     # Double U-Net output if we want to have output1 also
     # out = eddl.Concat([output1, output2])
     

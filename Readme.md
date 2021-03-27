@@ -49,7 +49,7 @@ Start DeepHealth's docker image with sync folder:
 
 [Project repository](https://c4science.ch/diffusion/11226/) \
 [Multiple Sclerosis image segmentation](https://c4science.ch/diffusion/10390/) \
-[DeepHealth Seizure Detection](https://c4science.ch/diffusion/9868/) \
+[DeepHealth Seizure Detection](https://c4science.ch/diffusion/9868/) 
 
 Clone with SSH key: 
 ```
@@ -100,25 +100,25 @@ Execution benchmarks without GPU:
 Image segmentation: \
 https://github.com/mrgloom/awesome-semantic-segmentation \
 https://missinglink.ai/guides/computer-vision/image-segmentation-deep-learning-methods-applications/ \
-https://tuatini.me/practical-image-segmentation-with-unet/ \
+https://tuatini.me/practical-image-segmentation-with-unet/ 
 
 Multiple Sclerosis MRI segmentation: \
 https://portal.fli-iam.irisa.fr/msseg-challenge/overview      (MICCAI MSSEG Challenge) \
-https://portal.fli-iam.irisa.fr/msseg-challenge/workshop-day  (MICCAI MSSEG Docs and results) \
+https://portal.fli-iam.irisa.fr/msseg-challenge/workshop-day  (MICCAI MSSEG Docs and results) 
 
 https://github.com/sergivalverde/nicMSlesions			(https://arxiv.org/pdf/1805.12415.pdf) \
 https://github.com/marianocabezas/miccai_challenge2016	(http://marianocabezas.github.io/miccai_challenge2016/) \ 
-https://github.com/Fjaviervera/MS-challenge-2016		(https://www.overleaf.com/project/5c986fad25c3584dbc987293) \
+https://github.com/Fjaviervera/MS-challenge-2016		(https://www.overleaf.com/project/5c986fad25c3584dbc987293) 
 
 https://github.com/deephealthproject/use-case-pipelines/tree/3rd_hackathon \
-https://github.com/IntelAI/unet \
+https://github.com/IntelAI/unet 
 
 ### Datasets
 
 [MICCAI 2016](http://miccai2016.org/en/) \
 [ISBI](http://brainiac2.mit.edu/isbi_challenge/) \
 [CIFAR10](https://www.cs.toronto.edu/~kriz/cifar.html) \
-[MNIST](https://en.wikipedia.org/wiki/MNIST_database) \
+[MNIST](https://en.wikipedia.org/wiki/MNIST_database) 
 
 ### References
 
