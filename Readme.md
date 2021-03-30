@@ -141,4 +141,17 @@ Allow Jupyter Notebook to allocate bigger memory blocks [link](https://stackover
 jupyter notebook --NotebookApp.max_buffer_size=your_value
 ```
 
-* 
+* <Layer>.output NoneType instead of Tensor
+
+EDDL models created in an inner scope are automatically removed when the environment is deleted if these are not referenced anymore.
+
+```
+# Out of this scope the whole net might be removed even if we are still referencing some of its layers
+def encoder1(in_):
+    vgg19_net = vgg19(in_, include_top=False)
+    # or
+    vgg19_net = eddl.Model([in_],[out])    
+    ...
+```
+
+

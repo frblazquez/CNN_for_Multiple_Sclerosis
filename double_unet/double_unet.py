@@ -150,8 +150,7 @@ def decoder2(in_, vgg19_skips, encoder_skips):
     
     return eddl.Sigmoid(eddl.Conv(decoder_out, 1, [1, 1], [1, 1]))
     
-def encoder1(in_):
-    vgg19_net = vgg19(in_, include_top=False)
+def encoder1(vgg19_net):
     vgg19_out = eddl.getLayer(vgg19_net, VGG19_BLOCK_5)
     
     vgg19_block1_out = eddl.getLayer(vgg19_net, VGG19_BLOCK_1)
@@ -189,7 +188,8 @@ def encoder2(in_):
 def double_unet(in_):
 
     # Encode 1-ASPP-Decode 1, first U-Net
-    vgg19_out, vgg19_blocks_out = encoder1(in_)
+    vgg_19 = vgg19(in_) 
+    vgg19_out, vgg19_blocks_out = encoder1(vgg_19)
     aspp1_out = aspp(vgg19_out, 64)
     output1   = decoder1(aspp1_out, vgg19_blocks_out)
     
