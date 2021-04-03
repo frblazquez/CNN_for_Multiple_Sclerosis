@@ -93,6 +93,7 @@ Execution benchmarks without GPU:
 - My laptop: 0.1254 secs/batch
 - Server:    7.6003 secs/batch
 
+Run process in background: [link](https://linuxhandbook.com/run-process-background/) 
 
 
 ### Global vision documentation
@@ -141,7 +142,7 @@ Allow Jupyter Notebook to allocate bigger memory blocks [link](https://stackover
 jupyter notebook --NotebookApp.max_buffer_size=your_value
 ```
 
-* <Layer>.output NoneType instead of Tensor
+* \<Layer\>.output NoneType instead of Tensor
 
 EDDL models created in an inner scope are automatically removed when the environment is deleted if these are not referenced anymore.
 
@@ -153,5 +154,8 @@ def encoder1(in_):
     vgg19_net = eddl.Model([in_],[out])    
     ...
 ```
+
+In words of the EDDL developers: \
+*"Yes, eddl Net objects destroy internal objects when they are deleted. There have been some changes in memory management after eddl 0.8.3a (corresponding to pyeddl 0.12.0), so that could be the reason why your sample worked in pyeddl 0.12.0."*
 
 
