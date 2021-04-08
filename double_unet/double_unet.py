@@ -189,10 +189,11 @@ def double_unet(in_):
     output1   = decoder1(aspp1_out, vgg19_blocks_out)
     
     # in_ and output1 might differ in the number of channels!
-    output1_mult = eddl.Concat([output1 for i in range(in_.output.shape[1])])
+    if in_.output.shape[1] > 1:
+        output1 = eddl.Concat([output1 for i in range(in_.output.shape[1])])
 
     # Encode 2-ASPP-Decode 2, second U-Net
-    multiply  = eddl.Mult(in_, output1_mult)
+    multiply  = eddl.Mult(in_, output1)
     encoder_out, encoder_blocks_out = encoder2(multiply)
     aspp2_out = aspp(encoder_out, 64)
     output2   = decoder2(aspp2_out, vgg19_blocks_out, encoder_blocks_out)
