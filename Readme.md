@@ -127,7 +127,7 @@ I want to distinguish between general references and papers which are the theore
 
 ### Troubleshooting
 
-* Error allocating memory
+* **Error allocating memory**
 
 Allow to allocate more memory to the processes, [link](https://discuss.pynq.io/t/runtimeerror-failed-to-allocate-memory/1773)
 ```
@@ -141,7 +141,7 @@ Allow Jupyter Notebook to allocate bigger memory blocks [link](https://stackover
 jupyter notebook --NotebookApp.max_buffer_size=your_value
 ```
 
-* <Layer>.output NoneType instead of Tensor
+* **<Layer>.output NoneType instead of Tensor**
 
 EDDL models created in an inner scope are automatically removed when the environment is deleted if these are not referenced anymore.
 
@@ -154,14 +154,10 @@ def encoder1(in_):
     ...
 ```
 
-<<<<<<< HEAD
 In words of the EDDL developers: \
 *"Yes, eddl Net objects destroy internal objects when they are deleted. There have been some changes in memory management after eddl 0.8.3a (corresponding to pyeddl 0.12.0), so that could be the reason why your sample worked in pyeddl 0.12.0."*
 
-* RuntimeError: [CUDA ERROR]: out of memory (2)
+* **RuntimeError: [CUDA ERROR]: out of memory (2)**
 
-* Segmentation fault (core dumped)
-
-=======
->>>>>>> parent of abf7196... U-Net test over drive dataset
+* **Segmentation fault (core dumped)**
 

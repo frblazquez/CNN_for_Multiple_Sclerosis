@@ -5,6 +5,9 @@ __pycache__/
 *$py.class
 *.log
 
+# Preprocessed datasets and saved models
+*.bin
+
 # Distribution and packaging
 .Python
 build/
