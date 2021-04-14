@@ -1,4 +1,4 @@
-# Francisco Javier Blázquez Martínez
+# Francisco Javier Blázquez Martínez ~ francisco.blazquezmartinez@epfl.ch
 #
 # École polytechnique fédérale de Lausanne, Switzerland
 # Deephealth project
@@ -22,50 +22,42 @@ VGG19_BLOCK_4 = "vgg19_block_4"
 VGG19_BLOCK_5 = "vgg19_block_5"
 
 
-# VGG19 implementation
+# VGG19 implementation (only first layers of the NN)
 #
 # References:
 # https://iq.opengenus.org/vgg19-architecture/
 # https://github.com/keras-team/keras-applications/blob/master/keras_applications/vgg19.py
 # https://github.com/deephealthproject/pyeddl/blob/master/examples/NN/2_CIFAR10/cifar_vgg16.py
-def vgg19(in_, num_classes=2, include_top=False):
+def vgg19(in_):
     layer = in_
 
     # There is no batch normalization in the Keras implementation, but there is in EDDL's VGG16!
-    layer = eddl.ReLu(eddl.BatchNormalization(eddl.Conv(layer, 64, [3, 3], [1, 1]), True))
-    layer = eddl.ReLu(eddl.BatchNormalization(eddl.Conv(layer, 64, [3, 3], [1, 1]), True), VGG19_BLOCK_1)
-    layer = eddl.MaxPool(layer)
+    layer  = eddl.ReLu(eddl.BatchNormalization(eddl.Conv(layer, 64, [3, 3], [1, 1]), True))
+    layer1 = eddl.ReLu(eddl.BatchNormalization(eddl.Conv(layer, 64, [3, 3], [1, 1]), True), VGG19_BLOCK_1)
+    layer  = eddl.MaxPool(layer1)
 
-    layer = eddl.ReLu(eddl.BatchNormalization(eddl.Conv(layer, 128, [3, 3], [1, 1]), True))
-    layer = eddl.ReLu(eddl.BatchNormalization(eddl.Conv(layer, 128, [3, 3], [1, 1]), True), VGG19_BLOCK_2)
-    layer = eddl.MaxPool(layer)
+    layer  = eddl.ReLu(eddl.BatchNormalization(eddl.Conv(layer, 128, [3, 3], [1, 1]), True))
+    layer2 = eddl.ReLu(eddl.BatchNormalization(eddl.Conv(layer, 128, [3, 3], [1, 1]), True), VGG19_BLOCK_2)
+    layer  = eddl.MaxPool(layer2)
 
-    layer = eddl.ReLu(eddl.BatchNormalization(eddl.Conv(layer, 256, [3, 3], [1, 1]), True))
-    layer = eddl.ReLu(eddl.BatchNormalization(eddl.Conv(layer, 256, [3, 3], [1, 1]), True))
-    layer = eddl.ReLu(eddl.BatchNormalization(eddl.Conv(layer, 256, [3, 3], [1, 1]), True))
-    layer = eddl.ReLu(eddl.BatchNormalization(eddl.Conv(layer, 256, [3, 3], [1, 1]), True), VGG19_BLOCK_3)
-    layer = eddl.MaxPool(layer)
+    layer  = eddl.ReLu(eddl.BatchNormalization(eddl.Conv(layer, 256, [3, 3], [1, 1]), True))
+    layer  = eddl.ReLu(eddl.BatchNormalization(eddl.Conv(layer, 256, [3, 3], [1, 1]), True))
+    layer  = eddl.ReLu(eddl.BatchNormalization(eddl.Conv(layer, 256, [3, 3], [1, 1]), True))
+    layer3 = eddl.ReLu(eddl.BatchNormalization(eddl.Conv(layer, 256, [3, 3], [1, 1]), True), VGG19_BLOCK_3)
+    layer  = eddl.MaxPool(layer3)
 
-    layer = eddl.ReLu(eddl.BatchNormalization(eddl.Conv(layer, 512, [3, 3], [1, 1]), True))
-    layer = eddl.ReLu(eddl.BatchNormalization(eddl.Conv(layer, 512, [3, 3], [1, 1]), True))
-    layer = eddl.ReLu(eddl.BatchNormalization(eddl.Conv(layer, 512, [3, 3], [1, 1]), True))
-    layer = eddl.ReLu(eddl.BatchNormalization(eddl.Conv(layer, 512, [3, 3], [1, 1]), True), VGG19_BLOCK_4)
-    layer = eddl.MaxPool(layer)
+    layer  = eddl.ReLu(eddl.BatchNormalization(eddl.Conv(layer, 512, [3, 3], [1, 1]), True))
+    layer  = eddl.ReLu(eddl.BatchNormalization(eddl.Conv(layer, 512, [3, 3], [1, 1]), True))
+    layer  = eddl.ReLu(eddl.BatchNormalization(eddl.Conv(layer, 512, [3, 3], [1, 1]), True))
+    layer4 = eddl.ReLu(eddl.BatchNormalization(eddl.Conv(layer, 512, [3, 3], [1, 1]), True), VGG19_BLOCK_4)
+    layer  = eddl.MaxPool(layer4)
 
-    layer = eddl.ReLu(eddl.BatchNormalization(eddl.Conv(layer, 512, [3, 3], [1, 1]), True))
-    layer = eddl.ReLu(eddl.BatchNormalization(eddl.Conv(layer, 512, [3, 3], [1, 1]), True))
-    layer = eddl.ReLu(eddl.BatchNormalization(eddl.Conv(layer, 512, [3, 3], [1, 1]), True))
-    layer = eddl.ReLu(eddl.BatchNormalization(eddl.Conv(layer, 512, [3, 3], [1, 1]), True), VGG19_BLOCK_5)
-    out = eddl.MaxPool(layer)
+    layer  = eddl.ReLu(eddl.BatchNormalization(eddl.Conv(layer, 512, [3, 3], [1, 1]), True))
+    layer  = eddl.ReLu(eddl.BatchNormalization(eddl.Conv(layer, 512, [3, 3], [1, 1]), True))
+    layer  = eddl.ReLu(eddl.BatchNormalization(eddl.Conv(layer, 512, [3, 3], [1, 1]), True))
+    layer5 = eddl.ReLu(eddl.BatchNormalization(eddl.Conv(layer, 512, [3, 3], [1, 1]), True), VGG19_BLOCK_5)
 
-    if include_top:
-        out = eddl.Flatten(out)
-
-        out = eddl.Activation(eddl.Dense(out, 4096), "relu")
-        out = eddl.Activation(eddl.Dense(out, 4096), "relu")    
-        out = eddl.Softmax(eddl.Dense(out, num_classes))
-
-    return eddl.Model([in_], [out])
+    return layer5, [layer4,layer3,layer2,layer1]
 
 
 # ASPP implementation
@@ -145,17 +137,6 @@ def decoder2(in_, vgg19_skips, encoder_skips):
     
     return eddl.Sigmoid(eddl.Conv(decoder_out, 1, [1, 1], [1, 1]))
     
-def encoder1(vgg19_net):
-    vgg19_out = eddl.getLayer(vgg19_net, VGG19_BLOCK_5)
-    
-    vgg19_block1_out = eddl.getLayer(vgg19_net, VGG19_BLOCK_1)
-    vgg19_block2_out = eddl.getLayer(vgg19_net, VGG19_BLOCK_2)
-    vgg19_block3_out = eddl.getLayer(vgg19_net, VGG19_BLOCK_3)
-    vgg19_block4_out = eddl.getLayer(vgg19_net, VGG19_BLOCK_4)
-    vgg19_blocks_out = [vgg19_block4_out, vgg19_block3_out, vgg19_block2_out, vgg19_block1_out]
-
-    return vgg19_out, vgg19_blocks_out
-
 def encoder2(in_):
     encoder_out   = in_
     filters       = [32, 64, 128, 256]
@@ -183,8 +164,7 @@ def encoder2(in_):
 def double_unet(in_):
 
     # Encode 1-ASPP-Decode 1, first U-Net
-    vgg_19 = vgg19(in_) 
-    vgg19_out, vgg19_blocks_out = encoder1(vgg_19)
+    vgg19_out, vgg19_blocks_out = vgg19(in_)
     aspp1_out = aspp(vgg19_out, 64)
     output1   = decoder1(aspp1_out, vgg19_blocks_out)
     

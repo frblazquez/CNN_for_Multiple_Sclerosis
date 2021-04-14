@@ -161,3 +161,8 @@ In words of the EDDL developers: \
 
 * **Segmentation fault (core dumped)**
 
+* **Temporary fail in name resolution**
+https://stackoverflow.com/questions/53687051/ping-google-com-temporary-failure-in-name-resolution
+```
+sudo systemctl restart systemd-resolved.service
+```
