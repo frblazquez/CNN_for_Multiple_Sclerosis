@@ -78,7 +78,7 @@ def aspp(in_, filter):
     l1 = eddl.UpSampling(l1, [shape[2], shape[3]], interpolation="bilinear")
 
     out= eddl.Concat([l1, l2, l3, l4, l5])
-    out= eddl.ReLu(eddl.BatchNormalization(eddl.Conv(in_, filter, [1, 1], use_bias=False, dilation_rate=[1,1]),   True))
+    out= eddl.ReLu(eddl.BatchNormalization(eddl.Conv(out, filter, [1, 1], use_bias=False, dilation_rate=[1,1]),   True))
 
     return out
 
