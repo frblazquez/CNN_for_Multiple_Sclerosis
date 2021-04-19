@@ -18,7 +18,7 @@ MICCAI_PATH  = "/scrap/users/blazquez/datasets/miccai2016/"
 MEM_CHOICES = ("low_mem", "mid_mem", "full_mem")
 LOSS_FUNCTION = "binary_cross_entropy"
 METRICS = "dice"
-LEARNING_RATE = 0.0001
+LEARNING_RATE = 0.00001
 
 
 def main(args):
@@ -34,21 +34,26 @@ def main(args):
         eddl.CS_GPU(g=[0,1],mem=args.mem)
     )
 
+    eddl.load(net, "double_unet_miccai.bin")
     eddl.summary(net)
     eddl.setlogfile(net, "run/double_unet.log")
 
-    print("Loading train images")
     x_train = Tensor.load(MICCAI_PATH+"bin/miccai_trX_preprocessed.bin")
     x_train.div_(255.0)
     x_train.info()
 
-    print("Loading train masks")
     y_train = Tensor.load(MICCAI_PATH+"bin/miccai_trY_preprocessed.bin")
     y_train.info()
 
-    print("Creating batch tensors")
     x_batch = Tensor([args.batch_size, 1, 256, 256])
     y_batch = Tensor([args.batch_size, 1, 256, 256])
+
+    x_test = Tensor.load(MICCAI_PATH+"bin/miccai_tsX_preprocessed.bin")
+    x_test.div_(255.0)
+    x_test.info()
+
+    y_test = Tensor.load(MICCAI_PATH+"bin/miccai_tsY_preprocessed.bin")
+    y_test.info()
 
     for i in range(args.epochs):
         print("Epoch %d/%d" % (i + 1, args.epochs))
@@ -59,14 +64,14 @@ def main(args):
             eddl.print_loss(net, j)
             print()
         print()
-        
-    eddl.save("models/double_unet_miccai.bin")  
+        eddl.save("models/double_unet_miccai_"+str(i)+".bin")
+        eddl.evaluate(net, [x_test], [y_test])  
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--epochs", type=int, metavar="INT", default=10)
-    parser.add_argument("--batch-size", type=int, metavar="INT", default=1)
-    parser.add_argument("--num-batches", type=int, metavar="INT", default=5)
+    parser.add_argument("--epochs", type=int, metavar="INT", default=64)
+    parser.add_argument("--batch-size", type=int, metavar="INT", default=8)
+    parser.add_argument("--num-batches", type=int, metavar="INT", default=1152)
     parser.add_argument("--mem", metavar="|".join(MEM_CHOICES), choices=MEM_CHOICES, default="low_mem")
     main(parser.parse_args(sys.argv[1:]))
