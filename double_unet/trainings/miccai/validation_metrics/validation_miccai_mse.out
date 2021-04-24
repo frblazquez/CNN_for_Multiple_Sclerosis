@@ -1,0 +1,160 @@
+(Evaluate with batch size 16, loss=binary_cross_entropy, metric=mse)
+
+INFO - Loading model 3
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=16.584 metric=0.031] 
+INFO - Loading model 4
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=14.632 metric=0.029] 
+INFO - Loading model 5
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=11.622 metric=0.021] 
+INFO - Loading model 6
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=10.175 metric=0.015] 
+INFO - Loading model 7
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=8.969 metric=0.013] 
+INFO - Loading model 8
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=7.165 metric=0.008] 
+INFO - Loading model 9
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=6.132 metric=0.007] 
+INFO - Loading model 10
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=5.306 metric=0.006] 
+INFO - Loading model 11
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=4.387 metric=0.003] 
+INFO - Loading model 12
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=3.718 metric=0.002] 
+INFO - Loading model 13
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=3.372 metric=0.002] 
+INFO - Loading model 14
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=2.853 metric=0.002] 
+INFO - Loading model 15
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=2.540 metric=0.001] 
+INFO - Loading model 16
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=1.899 metric=0.001] 
+INFO - Loading model 17
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=1.486 metric=0.001] 
+INFO - Loading model 18
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=1.211 metric=0.001] 
+INFO - Loading model 19
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.869 metric=0.001] 
+INFO - Loading model 20
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.709 metric=0.000] 
+INFO - Loading model 21
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.479 metric=0.000] 
+INFO - Loading model 22
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.615 metric=0.001] 
+INFO - Loading model 23
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.392 metric=0.001] 
+INFO - Loading model 24
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.446 metric=0.006] 
+INFO - Loading model 25
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.896 metric=0.016] 
+INFO - Loading model 26
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.305 metric=0.007] 
+INFO - Loading model 27
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.229 metric=0.001] 
+INFO - Loading model 28
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.253 metric=0.009] 
+INFO - Loading model 29
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.184 metric=0.002] 
+INFO - Loading model 30
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.309 metric=0.007] 
+INFO - Loading model 31
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.234 metric=0.001] 
+INFO - Loading model 32
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.208 metric=0.001] 
+INFO - Loading model 33
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.092 metric=0.000] 
+INFO - Loading model 34
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.133 metric=0.001] 
+INFO - Loading model 35
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.100 metric=0.001] 
+INFO - Loading model 36
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.071 metric=0.001] 
+INFO - Loading model 37
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.053 metric=0.001] 
+INFO - Loading model 38
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.036 metric=0.001] 
+INFO - Loading model 39
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.095 metric=0.001] 
+INFO - Loading model 40
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.048 metric=0.001] 
+INFO - Loading model 41
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.031 metric=0.001] 
+INFO - Loading model 42
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.034 metric=0.001] 
+INFO - Loading model 43
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.036 metric=0.006] 
+INFO - Loading model 44
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.034 metric=0.001] 
+INFO - Loading model 45
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.041 metric=0.001] 
+INFO - Loading model 46
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.027 metric=0.000] 
+INFO - Loading model 47
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.022 metric=0.001] 
+INFO - Loading model 48
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.025 metric=0.001] 
+INFO - Loading model 49
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.020 metric=0.001] 
+INFO - Loading model 50
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.029 metric=0.001] 
+INFO - Loading model 51
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.014 metric=0.000] 
+INFO - Loading model 52
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.028 metric=0.002] 
+INFO - Loading model 53
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.025 metric=0.001] 
+INFO - Loading model 54
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.017 metric=0.002] 
+INFO - Loading model 55
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.020 metric=0.004] 
+INFO - Loading model 56
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.024 metric=0.011] 
+INFO - Loading model 57
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.010 metric=0.001] 
+INFO - Loading model 58
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.015 metric=0.002] 
+INFO - Loading model 59
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.024 metric=0.008] 
+INFO - Loading model 60
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.006 metric=0.001]
+INFO - Loading model 61
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.015 metric=0.001]
+INFO - Loading model 62
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.025 metric=0.001]
+INFO - Loading model 63
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.050 metric=0.003]
+INFO - Loading model 64
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.007 metric=0.001]
+INFO - Loading model 65
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.007 metric=0.001] 
+INFO - Loading model 66
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.008 metric=0.001] 
+INFO - Loading model 67
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.006 metric=0.001] 
+INFO - Loading model 68
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.019 metric=0.002] 
+INFO - Loading model 69
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.012 metric=0.002] 
+INFO - Loading model 70
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.047 metric=0.001] 
+INFO - Loading model 71
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.022 metric=0.001] 
+INFO - Loading model 72
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.037 metric=0.001] 
+INFO - Loading model 73
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.020 metric=0.001]
+INFO - Loading model 74
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.005 metric=0.001]
+INFO - Loading model 75
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.018 metric=0.001]
+INFO - Loading model 76
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.003 metric=0.001]
+INFO - Loading model 77
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.003 metric=0.002]
+INFO - Loading model 78
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.003 metric=0.001]
+INFO - Loading model 79
+[XXXXXXXXXXXXXXXXXXXX] 144 sigmoid73[loss=0.000 metric=0.001]
+
+
+
+

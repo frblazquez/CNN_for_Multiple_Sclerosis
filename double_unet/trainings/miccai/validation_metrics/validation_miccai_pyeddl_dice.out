@@ -1,0 +1,242 @@
+(Evaluate with batch size 10, loss=binary_cross_entropy, metric=dice_eddl_implementation)
+
+Evaluation of the model after epoch 0:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=35.708 metric=0.000]
+
+Evaluation of the model after epoch 1:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=32.917 metric=0.000]
+
+Evaluation of the model after epoch 2:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=30.247 metric=0.000]
+
+Evaluation of the model after epoch 3:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=26.596 metric=0.000]
+
+Evaluation of the model after epoch 4:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=23.549 metric=0.000]
+
+Evaluation of the model after epoch 5:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=18.791 metric=0.000]
+
+Evaluation of the model after epoch 6:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=16.415 metric=0.000]
+
+Evaluation of the model after epoch 7:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=14.350 metric=0.000]
+
+Evaluation of the model after epoch 8:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=11.487 metric=0.000]
+
+Evaluation of the model after epoch 9:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=9.906 metric=0.000]
+
+Evaluation of the model after epoch 10:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=8.485 metric=0.000]
+
+Evaluation of the model after epoch 11:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=7.015 metric=0.000]
+
+Evaluation of the model after epoch 12:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=5.909 metric=0.000] 
+
+Evaluation of the model after epoch 13: 
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=5.401 metric=0.000] 
+
+Evaluation of the model after epoch 14: 
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=4.523 metric=0.000] 
+
+Evaluation of the model after epoch 15: 
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=4.049 metric=0.000] 
+
+Evaluation of the model after epoch 16: 
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=3.035 metric=0.000] 
+
+Evaluation of the model after epoch 17:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=2.347 metric=0.000] 
+
+Evaluation of the model after epoch 18: 
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=1.904 metric=0.000] 
+
+Evaluation of the model after epoch 19: 
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=1.397 metric=0.000] 
+
+Evaluation of the model after epoch 20:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=1.127 metric=0.000] 
+
+Evaluation of the model after epoch 21:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.772 metric=0.000] 
+
+Evaluation of the model after epoch 22: 
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.964 metric=0.001] 
+
+Evaluation of the model after epoch 23: 
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.616 metric=0.001] 
+
+Evaluation of the model after epoch 24:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.707 metric=0.003] 
+
+Evaluation of the model after epoch 25: 
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=1.466 metric=0.006] 
+
+Evaluation of the model after epoch 26:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.469 metric=0.007]
+
+Evaluation of the model after epoch 27:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.357 metric=0.002] 
+
+Evaluation of the model after epoch 28: 
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.386 metric=0.002] 
+
+Evaluation of the model after epoch 29: 
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.293 metric=0.006] 
+
+Evaluation of the model after epoch 30:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.478 metric=0.002]
+
+Evaluation of the model after epoch 31:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.359 metric=0.000]
+
+Evaluation of the model after epoch 32:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.337 metric=0.001]
+
+Evaluation of the model after epoch 33:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.148 metric=0.000]
+
+Evaluation of the model after epoch 34:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.198 metric=0.000] 
+
+Evaluation of the model after epoch 35: 
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.157 metric=0.002] 
+
+Evaluation of the model after epoch 36: 
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.112 metric=0.003] 
+
+Evaluation of the model after epoch 37:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.084 metric=0.003]
+
+Evaluation of the model after epoch 38:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.057 metric=0.000] 
+
+Evaluation of the model after epoch 39: 
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.146 metric=0.007] 
+
+Evaluation of the model after epoch 40: 
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.071 metric=0.002] 
+
+Evaluation of the model after epoch 41: 
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.049 metric=0.002] 
+
+Evaluation of the model after epoch 42: 
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.054 metric=0.001] 
+
+Evaluation of the model after epoch 43:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.056 metric=0.013]
+
+Evaluation of the model after epoch 44: 
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.055 metric=0.016] 
+
+Evaluation of the model after epoch 45:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.066 metric=0.001]
+
+Evaluation of the model after epoch 46:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.044 metric=0.000]
+
+Evaluation of the model after epoch 47:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.035 metric=0.003]
+
+Evaluation of the model after epoch 48:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.039 metric=0.014]
+
+Evaluation of the model after epoch 49: 
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.031 metric=0.000]
+
+Evaluation of the model after epoch 50: 
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.048 metric=0.004] 
+
+Evaluation of the model after epoch 51: 
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.023 metric=0.000] 
+
+Evaluation of the model after epoch 52: 
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.039 metric=0.009] 
+
+Evaluation of the model after epoch 53: 
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.039 metric=0.015] 
+
+Evaluation of the model after epoch 54:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.028 metric=0.020]
+
+Evaluation of the model after epoch 55:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.035 metric=0.017]
+
+Evaluation of the model after epoch 56:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.040 metric=0.014] 
+
+Evaluation of the model after epoch 57:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.016 metric=0.014]
+
+Evaluation of the model after epoch 58:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.031 metric=0.020]
+
+Evaluation of the model after epoch 59:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.036 metric=0.013]
+
+Evaluation of the model after epoch 60:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.009 metric=0.006]
+
+Evaluation of the model after epoch 61:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.028 metric=0.006]
+
+Evaluation of the model after epoch 62:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.039 metric=0.001] 
+
+Evaluation of the model after epoch 63:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.084 metric=0.007]
+
+Evaluation of the model after epoch 64:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.012 metric=0.015]
+
+Evaluation of the model after epoch 65:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.016 metric=nan]
+
+Evaluation of the model after epoch 66: 
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.012 metric=0.013]
+
+Evaluation of the model after epoch 67:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.010 metric=0.015] 
+
+Evaluation of the model after epoch 68:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.050 metric=0.016]
+
+Evaluation of the model after epoch 69:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.032 metric=0.014]
+
+Evaluation of the model after epoch 70:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.089 metric=0.005]
+
+Evaluation of the model after epoch 71:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.029 metric=0.007]
+
+Evaluation of the model after epoch 72:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.064 metric=nan] ]
+
+Evaluation of the model after epoch 73:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.036 metric=nan] ]
+
+Evaluation of the model after epoch 74:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.006 metric=nan] ]
+
+Evaluation of the model after epoch 75:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.030 metric=nan] ]
+
+Evaluation of the model after epoch 76:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.004 metric=nan] ]
+
+Evaluation of the model after epoch 77:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.003 metric=nan] ]
+
+Evaluation of the model after epoch 78:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.005 metric=0.014]
+
+Evaluation of the model after epoch 79:
+[XXXXXXXXXXXXXXXXXXXX] 230 sigmoid73[loss=0.003 metric=nan] ]
+

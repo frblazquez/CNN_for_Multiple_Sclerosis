@@ -1,0 +1,176 @@
+Evaluate with batch size 16
+[[0;32mXXXXXXXXXXXXXXXXXXXX[0;31m[0m] 576 sigmoid73[loss=22.471 metric=0.059] 
+Evaluate with batch size 16
+[[0;32mXXXXXXXXXXXXXXXXXXXX[0;31m[0m] 576 sigmoid73[loss=20.684 metric=0.049] 
+Evaluate with batch size 16
+[[0;32mXXXXXXXXXXXXXXXXXXXX[0;31m[0m] 576 sigmoid73[loss=18.967 metric=0.040] 
+Evaluate with batch size 16
+[[0;32mXXXXXXXXXXXXXXXXXXXX[0;31m[0m] 576 sigmoid73[loss=16.611 metric=0.033] 
+Evaluate with batch size 16
+[[0;32mXXXXXXXXXXXXXXXXXXXX[0;31m[0m] 576 sigmoid73[loss=14.568 metric=0.030] 
+Evaluate with batch size 16
+[[0;32mXXXXXXXXXXXXXXXXXXXX[0;31m[0m] 576 sigmoid73[loss=11.542 metric=0.025] 
+Evaluate with batch size 16
+[[0;32mXXXXXXXXXXXXXXXXXXXX[0;31m[0m] 576 sigmoid73[loss=10.130 metric=0.017] 
+Evaluate with batch size 16
+[[0;32mXXXXXXXXXXXXXXXXXXXX[0;31m[0m] 576 sigmoid73[loss=8.928 metric=0.015] 
+Evaluate with batch size 16
+[[0;32mXXXXXXXXXXXXXXXXXXXX[0;31m[0m] 576 sigmoid73[loss=7.095 metric=0.010] 
+Evaluate with batch size 16
+[[0;32mXXXXXXXXXXXXXXXXXXXX[0;31m[0m] 576 sigmoid73[loss=6.197 metric=0.008] 
+Evaluate with batch size 16
+[[0;32mXXXXXXXXXXXXXXXXXXXX[0;31m[0m] 576 sigmoid73[loss=5.238 metric=0.008] 
+Evaluate with batch size 16
+[[0;32mXXXXXXXXXXXXXXXXXXXX[0;31m[0m] 576 sigmoid73[loss=4.337 metric=0.005] 
+Evaluate with batch size 16
+[[0;32mXXXXXXXXXXXXXXXXXXXX[0;31m[0m] 576 sigmoid73[loss=3.627 metric=0.004] 
+Evaluate with batch size 16
+[[0;32mXXXXXXXXXXXXXXXXXXXX[0;31m[0m] 576 sigmoid73[loss=3.361 metric=0.004] 
+Evaluate with batch size 16
+[[0;32mXXXXXXXXXXXXXXXXXXXX[0;31m[0m] 576 sigmoid73[loss=2.844 metric=0.003] 
+Evaluate with batch size 16
+[[0;32mXXXXXXXXXXXXXXXXXXXX[0;31m[0m] 576 sigmoid73[loss=2.570 metric=0.003] 
+Evaluate with batch size 16
+[[0;32mXXXXXXXXXXXXXXXXXXXX[0;31m[0m] 576 sigmoid73[loss=1.916 metric=0.003] 
+Evaluate with batch size 16
+[[0;32mXXXXXXXXXXXXXXXXXXXX[0;31m[0m] 576 sigmoid73[loss=1.493 metric=0.003] 
+Evaluate with batch size 16
+[[0;32mXXXXXXXXXXXXXXXXXXXX[0;31m[0m] 576 sigmoid73[loss=1.214 metric=0.002] 
+Evaluate with batch size 16
+[[0;32mXXXXXXXXXXXXXXXXXXXX[0;31m[0m] 576 sigmoid73[loss=0.861 metric=0.002] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.703 metric=0.002] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.471 metric=0.002] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.590 metric=0.003] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.385 metric=0.003] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.424 metric=0.007] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.913 metric=0.016] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.302 metric=0.008] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.225 metric=0.003] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.226 metric=0.009] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.185 metric=0.004] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.348 metric=0.009] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.209 metric=0.003] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.203 metric=0.003] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.091 metric=0.002] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.129 metric=0.003] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.096 metric=0.003] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.074 metric=0.003] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.056 metric=0.003] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.036 metric=0.002] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.094 metric=0.003] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.047 metric=0.003] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.034 metric=0.003] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.037 metric=0.002]
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.039 metric=0.007] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.033 metric=0.003] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.043 metric=0.002] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.029 metric=0.002] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.023 metric=0.002] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.025 metric=0.002] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.019 metric=0.002] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.032 metric=0.003] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.016 metric=0.002] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.028 metric=0.004] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.028 metric=0.003] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.019 metric=0.004] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.021 metric=0.006] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.023 metric=0.011] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.012 metric=0.003] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.018 metric=0.004] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.029 metric=0.009] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.007 metric=0.003] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.017 metric=0.002] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.019 metric=0.002] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.064 metric=0.005] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.008 metric=0.002] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.008 metric=0.003] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.009 metric=0.003] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.007 metric=0.002] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.034 metric=0.003] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.020 metric=0.003] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.039 metric=0.003] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.017 metric=0.002] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.024 metric=0.003] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.034 metric=0.003] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.006 metric=0.003] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.018 metric=0.003] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.003 metric=0.002] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.002 metric=0.003] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.003 metric=0.003] 
+
+
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.029 metric=0.009] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.007 metric=0.003] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.017 metric=0.002] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.019 metric=0.002] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.064 metric=0.005] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.008 metric=0.002] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.008 metric=0.003] 
+Evaluate with batch size 16
+[XXXXXXXXXXXXXXXXXXXX] 576 sigmoid73[loss=0.009 metric=0.003] 
