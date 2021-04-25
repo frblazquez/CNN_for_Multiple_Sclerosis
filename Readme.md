@@ -42,7 +42,8 @@ Start DeepHealth's docker image with sync folder:
 
 ### DOUBTS
 
-[Slack channel](https://app.slack.com/client/TKCHB0BME)
+[Slack channel DeepHealth](https://app.slack.com/client/TKCHB0BME)
+[Slack channel ESL](https://app.slack.com/client/T019X4N6VH8)
 
 
 ### C4SCIENCE
@@ -93,7 +94,12 @@ Execution benchmarks without GPU:
 - My laptop: 0.1254 secs/batch
 - Server:    7.6003 secs/batch
 
-
+GPU Profiling
+```
+SysCmd = 'nvidia-smi --query-gpu=power.draw,utilization.gpu,utilization.memory,temperature.gpu,pstate, --format=csv,nounits --id=0 -lms 500 -f ./GPUprofile' + str(ITRcnt) + '.csv &'
+os.system(SysCmd)
+os.system('kill $(ps aux | grep \'nvidia-smi\' | awk \'{print $2}\')')
+```
 
 ### Global vision documentation
 
@@ -159,10 +165,18 @@ In words of the EDDL developers: \
 
 * **RuntimeError: [CUDA ERROR]: out of memory (2)**
 
+* **RuntimeError: [CUDA ERROR]: an illegal memory access was encountered (700) raised in delete_tensor**
+
 * **Segmentation fault (core dumped)**
 
 * **Temporary fail in name resolution**
+
 https://stackoverflow.com/questions/53687051/ping-google-com-temporary-failure-in-name-resolution
 ```
 sudo systemctl restart systemd-resolved.service
+```
+
+The VPN connection failed due to unsuccessful domain name resolution. Connect directly to eddl server address:
+```
+192.33.201.72
 ```
