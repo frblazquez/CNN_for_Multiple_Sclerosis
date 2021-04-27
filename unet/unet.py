@@ -1,4 +1,4 @@
-# Francisco Javier Blázquez Martínez
+# Francisco Javier Blázquez Martínez ~ francisco.blazquezmartinez@epfl.ch
 #
 # École polytechnique fédérale de Lausanne, Switzerland
 # Deephealth project
