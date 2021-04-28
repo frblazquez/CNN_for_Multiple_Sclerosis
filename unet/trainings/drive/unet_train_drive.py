@@ -21,7 +21,7 @@ from unet import unet
 LOSS_FUNCTION = "mse"
 METRICS       = "mse"
 LEARNING_RATE = 0.00001
-DRIVE_PATH  = "/home/francisco/Documents/Universidad/5_Carrera/TFG_Computer_Science/datasets/drive/"
+DRIVE_PATH  = None
 MEM_CHOICES = ("low_mem", "mid_mem", "full_mem")
 
 
