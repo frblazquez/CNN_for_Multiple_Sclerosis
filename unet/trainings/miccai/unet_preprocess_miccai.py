@@ -4,81 +4,103 @@
 # Deephealth project
 #
 # Description:
-# U-Net model train over MICCAI 2016 dataset
+# Drive dataset preprocessing for U-Net model
 #
 # References:
-# http://miccai2016.org/
+# https://drive.grand-challenge.org/
 # https://github.com/deephealthproject/pyeddl/blob/master/examples/NN/3_DRIVE/drive_seg.py
 
-import argparse
-import sys
-
+import os
 import pyeddl.eddl as eddl
 from pyeddl.tensor import Tensor
-from unet import unet
+
+import numpy   as np
+import nibabel as nib
+import matplotlib.pyplot as plt
+import skimage.transform as skTrans
+
+# Set the following variable to the folder containing the DRIVE dataset
+MICCAI_PATH = None
 
 
-LOSS_FUNCTION = "mse"
-METRICS       = "mse"
-LEARNING_RATE = 0.00001
-MICCAI_PATH   = None
-MEM_CHOICES = ("low_mem", "mid_mem", "full_mem")
+def main():
+    # Test images are selected so that there is one of each original shape
+    test_imgs_idx  = [4,9,14]
 
+    train_imgs_path = [MICCAI_PATH + 'preprocessed/s'+str(i)+'/FLAIR_preprocessed.nii' for i in range(1,16) if i not in test_imgs_idx]
+    train_masks_path= [MICCAI_PATH + 'unprocessed/s'+str(i)+'/Consensus.nii'           for i in range(1,16) if i not in test_imgs_idx]
+    test_imgs_path  = [MICCAI_PATH + 'preprocessed/s'+str(i)+'/FLAIR_preprocessed.nii' for i in test_imgs_idx]
+    test_masks_path = [MICCAI_PATH + 'unprocessed/s'+str(i)+'/Consensus.nii'           for i in test_imgs_idx]
 
-def main(args):
-    # unet for image segmentation
-    print("Creating model structure")
-    net = unet(eddl.Input([1, 256, 256]))
+    # Train data binary files creation
+    train_x = []
+    train_y = []
 
-    print("Building model")
-    eddl.build(
-        net,
-        eddl.adam(0.00001), # Optimizer
-        [LOSS_FUNCTION],    # Losses
-        [METRICS],          # Metrics
-        eddl.CS_GPU(mem=args.mem) if args.gpu else eddl.CS_CPU(mem=args.mem)
-    )
-
-    print("Model summary:")
-    eddl.summary(net)
-    eddl.setlogfile(net, "models/unet_miccai.log")
-
-    print("Reading training data")
-    x_train = Tensor.load(MICCAI_PATH+"miccai_trX_preprocessed.bin")
-    x_train.div_(255.0)
-    x_train.info()
-
-    print("Reading test data")
-    y_train = Tensor.load(MICCAI_PATH+"miccai_trY_preprocessed.bin")
-    y_train.div_(255.0)
-    y_train.info()
-
-    xbatch = Tensor([args.batch_size, 3, 512, 512])
-    ybatch = Tensor([args.batch_size, 1, 512, 512])
-
-    print("Starting training")
-    for i in range(args.epochs):
-        print("\nEpoch %d/%d" % (i + 1, args.epochs))
-        eddl.reset_loss(net)
-        for j in range(args.num_batches):
-            eddl.next_batch([x_train, y_train], [xbatch, ybatch])
-            eddl.train_batch(net, [xbatch_da], [ybatch_da])
-            eddl.print_loss(net, j)
-            #if i == args.epochs - 1:
-            #    yout = eddl.getOutput(out).select(["0"])
-            #    yout.save("./out_%d.jpg" % j)
-            #print()
-
-    print("Training successfully done, saving model...")
-    eddl.save(net, "models/unet_miccai.bin")
+    for (img,msk) in zip(train_imgs_path, train_masks_path):
+        img_np = nib.load(img).get_fdata()
+        msk_np = nib.load(msk).get_fdata()
     
+        # First we resize the image
+        img_np = skTrans.resize(img_np, (256,256,256), order=1, preserve_range=True)
+        msk_np = skTrans.resize(msk_np, (256,256,256), order=1, preserve_range=True)
+    
+        # Then we slice the 3D image to several 2D images
+        for i in range(256):
+            train_x.append(img_np[:,:,i])
+            train_y.append(msk_np[:,:,i])
+            train_x.append(img_np[:,i,:])
+            train_y.append(msk_np[:,i,:])
+            train_x.append(img_np[i,:,:])
+            train_y.append(msk_np[i,:,:])
+        
+    tensor_x = Tensor.fromarray(train_x)
+    tensor_y = Tensor.fromarray(train_y)
+
+    tensor_x.save("miccai_trX_preprocessed.bin", "bin")
+    tensor_y.save("miccai_trY_preprocessed.bin", "bin")
+
+    # Train data binary files creation
+    test_x = []
+    test_y = []
+    
+    for (img,msk) in zip(test_imgs_path, test_masks_path):
+        img_np = nib.load(img).get_fdata()
+        msk_np = nib.load(msk).get_fdata()
+        
+        # First we resize the image
+        img_np = skTrans.resize(img_np, (256,256,256), order=1, preserve_range=True)
+        msk_np = skTrans.resize(msk_np, (256,256,256), order=1, preserve_range=True)
+    
+        # Then we slice the 3D image to several 2D images
+        for i in range(256):
+            test_x.append(img_np[:,:,i])
+            test_y.append(msk_np[:,:,i])
+            test_x.append(img_np[:,i,:])
+            test_y.append(msk_np[:,i,:])
+            test_x.append(img_np[i,:,:])
+            test_y.append(msk_np[i,:,:])
+    
+    tensor_x = Tensor.fromarray(test_x)
+    tensor_y = Tensor.fromarray(test_y)
+
+    tensor_x.save("miccai_tsX_preprocessed.bin", "bin")
+    tensor_y.save("miccai_tsY_preprocessed.bin", "bin")
+
+    # Move binary files to dataset folder
+    os.rename("miccai_trX_preprocessed.bin", MICCAI_PATH+"bin/miccai_trX_preprocessed.bin")
+    os.rename("miccai_trY_preprocessed.bin", MICCAI_PATH+"bin/miccai_trY_preprocessed.bin")
+    os.rename("miccai_trX_preprocessed.bin", MICCAI_PATH+"bin/miccai_trX_preprocessed.bin")
+    os.rename("miccai_trY_preprocessed.bin", MICCAI_PATH+"bin/miccai_trY_preprocessed.bin")
 
 
+# TODO: Test!
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--epochs", type=int, metavar="INT", default=10)
-    parser.add_argument("--batch-size", type=int, metavar="INT", default=8)
-    parser.add_argument("--num-batches", type=int, metavar="INT", default=50)
-    parser.add_argument("--gpu", action="store_true")
-    parser.add_argument("--mem", metavar="|".join(MEM_CHOICES), choices=MEM_CHOICES, default="low_mem")
-    main(parser.parse_args(sys.argv[1:]))
+    if MICCAI_PATH == None:
+        print("ERROR - Path to DRIVE dataset folder is not set")
+    else
+        order = input("WARNING - Data preprocessing must be executed only once. Proceed? (y/n)")
+        if order == "y":
+            main()
+        else
+            print("INFO - Execution aborted")
+
