@@ -11,8 +11,8 @@ from PIL import Image
 
 
 IMAGES_IDXS = [175, 943, 1426]
-NUM_EPOCHS = 50
-THRESHOLD = 0.65
+NUM_EPOCHS = 128
+THRESHOLD = 0.5
 
 for img_idx in IMAGES_IDXS:
     mask_np = (np.array(Image.open("tr"+str(img_idx)+"/tr"+str(img_idx)+"_mask.jpg"))/255).astype(bool)
