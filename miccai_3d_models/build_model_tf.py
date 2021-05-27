@@ -80,8 +80,7 @@ def cascade_model(options):
     model1.add(layers.Flatten())
     model1.add(layers.Dropout(rate=0.5))
     model1.add(layers.Dense(256, activation='relu'))
-    model1.add(layers.Dense(2)) #add softmax activation or not?
-    # TODO: Try adding here sigmoid    
+    model1.add(layers.Dense(2)) #add softmax activation or not? 
     
     model1.compile(optimizer='adadelta',
               loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True), #should this be binary? from logits or not?
@@ -102,7 +101,6 @@ def cascade_model(options):
     model2.add(layers.Dropout(rate=0.5))
     model2.add(layers.Dense(256, activation='relu'))
     model2.add(layers.Dense(2))
-    # TODO: Try adding here sigmoid
     
     model2.compile(optimizer='adadelta',
               loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True), #should this be binary? from logits or not?

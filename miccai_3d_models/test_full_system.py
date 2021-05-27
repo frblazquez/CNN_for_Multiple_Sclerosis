@@ -133,8 +133,8 @@ fh = open("train_logging/train_stats_full_system_memory.txt","w+")
 # In[14]:
 
 
-train_folder = '../data/miccai2016/Preprocessed_training_dataset/'
-train_mask_folder = '../data/miccai2016/Unprocessed_training_dataset/TrainingDataset_MSSEG/'
+train_folder = '/scrap/users/blazquez/datasets/miccai2016/preprocessed/'
+train_mask_folder = '/scrap/users/blazquez/datasets/miccai2016/unprocessed/'
 train_x_data = {}
 train_y_data = {}
 

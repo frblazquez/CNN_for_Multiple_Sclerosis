@@ -11,6 +11,7 @@ from operator import add
 import tensorflow as tf
 import time
 from skimage.measure import block_reduce
+import pickle
 
 def train_cascaded_model(model, train_x_data, train_y_data, options):
     """
@@ -35,11 +36,22 @@ def train_cascaded_model(model, train_x_data, train_y_data, options):
 
     # first iteration (CNN1):
     fh2 = open("train_logging/" + options['experiment'] + "_time.txt","w+")
+
+    
+    
     print('---> cnn1 loading training data')
-    X, Y = load_training_data(train_x_data, train_y_data, options)
+    #X, Y = load_training_data(train_x_data, train_y_data, options)
+    with open('/scrap/users/blazquez/datasets/miccai2016/pkl/X_train_1.pkl', 'rb') as f:
+        X = np.moveaxis(pickle.load(f), 1,4)
+    with open('/scrap/users/blazquez/datasets/miccai2016/pkl/Y_train_1.pkl', 'rb') as f:
+       	Y = pickle.load(f).reshape(-1,1)
+
+
+     
     fh2.write('X shape: {0}'.format(X.shape))
     fh2.write('Y shape: {0}'.format(Y.shape))
     print('X shape: {0}'.format(X.shape))
+    print('Y shape: {0}'.format(Y.shape))
     print('---> cnn1 train_x ', X.shape ,'\n')
     
     start_model_1_time = time.time()
@@ -53,7 +65,8 @@ def train_cascaded_model(model, train_x_data, train_y_data, options):
     cp_callback = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path,
                                                      save_weights_only=True,
                                                      verbose=1)
-    
+
+    print('Checkpoint')
     history1 = model[0].fit(X, Y, batch_size=options['batch_size'], epochs = options['max_epochs'], validation_split=options['train_split'], verbose=options['net_verbose'], callbacks = [earlystop_callback, cp_callback])
                             #, callbacks= [earlystop_callback])
 
@@ -165,9 +178,8 @@ def load_training_data(train_x_data, train_y_data, options, model = None):
     Outputs:
         - X: np.array [num_samples, num_channels, p1, p2, p2]
         - Y: np.array [num_samples, 1, p1, p2, p2] if fully conv, [num_samples, 1] otherwise
-
     '''
-    
+
     # get_scan names and number of modalities used 
     scans = train_x_data.keys()
     modalities = train_x_data[list(scans)[0]].keys()
