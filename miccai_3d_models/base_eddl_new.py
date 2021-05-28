@@ -60,12 +60,19 @@ def train_cascaded_model(model, train_x_data, train_y_data, options):
     # first iteration (CNN1):
     fh2 = open("train_logging_eddl/" + options['experiment'] + "_time.txt","w+")
     print('---> cnn1 loading training data')
-    X, Y = load_training_data(train_x_data, train_y_data, options) #TODO: do it only once. 
+
+
+
+    #X, Y = load_training_data(train_x_data, train_y_data, options) #TODO: do it only once. 
     # Then save it (e.g. by pickle) and load it if you later need to debug or re-run.
-    # with open('Y_train.pkl', 'rb') as f:
-    #     Y = pickle.load(f).reshape(-1,1)
-    # with open('X_train.pkl', 'rb') as f:
-    #     X = pickle.load(f)
+    with open('/scrap/users/blazquez/datasets/miccai2016/pkl/X_train_1.pkl', 'rb') as f:
+        X = pickle.load(f)
+    with open('/scrap/users/blazquez/datasets/miccai2016/pkl/Y_train_1.pkl', 'rb') as f:
+       	Y = pickle.load(f).reshape(-1,1)
+
+
+
+
     fh2.write('X shape: {0}'.format(X.shape))
     fh2.write('Y shape: {0}'.format(Y.shape))
     print('X shape: {0}'.format(X.shape))
