@@ -184,10 +184,10 @@
                 {Project director}}            
 \supervisor  {\texorpdfstring{
     \href{https://people.epfl.ch/arman.iranfar}
-    {\textbf{Project supervisors:} Dr. Arman Iranfar,}
-    \href{https://people.epfl.ch/tomas.teijeiro}
-    { Dr. Tomás Teijeiro,} \\
-    \href{https://people.hes-so.ch/fr/profile/marina.zapater}
+    {\textbf{Project supervisors:} Dr. Arman Iranfar,} \hspace*{57pt} \phantom{}\\
+    \hspace{68pt}\href{https://people.epfl.ch/tomas.teijeiro}
+    { Dr. Tomás Teijeiro,}\\
+    \hspace{68pt} \href{https://people.hes-so.ch/fr/profile/marina.zapater}
     { Dr. Marina Zapater}}
 {Project supervisor}}     
 
@@ -264,22 +264,22 @@
 {
   \btypeout{Abstract Page}
   \thispagestyle{empty}
-  \null\vfil
+  %\null\vfil
   \begin{center}
     \setlength{\parskip}{0pt}
-    {\normalsize \UNIVNAME \par}
-    \bigskip
+    %{\normalsize \UNIVNAME \par}
+    %\bigskip
     {\huge{\textit{Abstract}} \par}
     \bigskip
-    {\normalsize \facname \par}
-    {\normalsize \deptname \par}
-    \bigskip
-    {\normalsize Undergraduate Degree\par}
-    \bigskip
-    {\normalsize\bf \@title \par}
-    \medskip
-    {\normalsize by \authornames \par}
-    \bigskip
+    %{\normalsize \facname \par}
+    %{\normalsize \deptname \par}
+    %\bigskip
+    %{\normalsize Master project\par}
+    %\bigskip
+    %{\normalsize\bf \@title \par}
+    %\medskip
+    %{\normalsize by \authornames \par}
+    %\bigskip
   \end{center}
 }
 {
@@ -382,7 +382,7 @@
 \btypeout{Acknowledgements}
 \addtotoc{Acknowledgements}
 \thispagestyle{plain}
-\begin{center}{\huge{\textit{Acknowledgements}} \par}\end{center}
+\begin{center}{\huge{\textit{Acknowledgements}} \bigskip \par}\end{center}
 {\normalsize #1}
 \vfil\vfil\null
 
