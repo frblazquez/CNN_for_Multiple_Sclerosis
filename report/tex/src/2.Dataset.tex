@@ -18,11 +18,10 @@ MICCAI 2016 dataset consists on 15 MRIs together with a lession mask generated b
 
 We split randomly the data in a train and a validation set with size 12 and 3 MRIs respectively. We don't keep a test set because given the fact that the size of this would be reduced to only one or two MRIs at most and the inhomogeneity in the different lesions shape, size, quantity and distribution, the evaluation over the test set would lead to a unreliable measurement. This is something certain after seeing the big differences in the metrics over different validation MRIs. Therefore we encourage to everyone who wants to use this models in practice to previously evaluate them over his own data.
 
-We present in the next page some slices of MRIs used as benchmarks for fast evaluation and visual confirmation from both the train and validation datasets.
+We present in the next page some slices of MRIs used as benchmarks for error detection and visual analysis of the models from both the train and validation datasets.
 
-% TODO: Change subcaption style
 \newpage
-Sample of images from the training set:
+Becnhmark training images:
 \begin{figure*}[!htb]
     \includegraphics[width=.32\textwidth]{images/tr_images/tr175_input.jpg}\hfill
     \includegraphics[width=.32\textwidth]{images/tr_images/tr943_input.jpg}\hfill
@@ -38,7 +37,7 @@ Sample of images from the training set:
     %\caption{Image C.}
 \end{figure*}
 
-Sample of images from the validation set: 
+Benchmark validation images: 
 \begin{figure*}[!htb]
     \includegraphics[width=.32\textwidth]{images/ts_images/ts175_input.jpg}\hfill
     \includegraphics[width=.32\textwidth]{images/ts_images/ts431_input.jpg}\hfill
@@ -57,5 +56,84 @@ Sample of images from the validation set:
 \newpage
 \section{Evaluation metrics}
 
-% TODO:
-The metrics used for evaluation are ...
+%%%%%%%%%%%%%%%%%% Listing configuration %%%%%%%%%%%%%%%%%
+\definecolor{gray97}{gray}{.97}
+\definecolor{gray75}{gray}{.75}
+\definecolor{gray45}{gray}{.45}
+
+\lstset{ frame=Ltb,
+framerule=0pt,
+aboveskip=0.5cm,
+framextopmargin=3pt,
+framexbottommargin=3pt,
+framexleftmargin=0.4cm,
+framesep=0pt,
+rulesep=.4pt,
+backgroundcolor=\color{gray97},
+rulesepcolor=\color{black},
+%
+stringstyle=\ttfamily,
+showstringspaces = false,
+basicstyle=\fontsize{9.5}{10}\selectfont\ttfamily,
+commentstyle=\color{gray45},
+keywordstyle=\bfseries,
+%
+numbers=left,
+numbersep=15pt,
+numberstyle=\tiny,
+numberfirstline = false,
+breaklines=true,
+}
+
+% minimizar fragmentado de listados
+\lstnewenvironment{listing}[1][]
+{\lstset{#1}\pagebreak[0]}{\pagebreak[0]}
+
+\lstdefinestyle{consola}
+{basicstyle=\scriptsize\bf\ttfamily,
+backgroundcolor=\color{gray75},
+}
+
+\lstdefinestyle{C}
+{language=Python,
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+During the training processes we have used \textit{binary cross entropy} as loss function. For evaluation we have used the \textit{Dice score}, a classical metric for image segmentation, much more representative than others used in classification tasks as \textit{Mean Squared Error} or \textit{Binary accuracy}. \textit{Dice score} is implemented in several similar but not fully equivalent ways and it's not a built-in metric in keras-tensorflow so we had to create our custom implementations for both the tensorflow and PyEDDL models. This way we also ensure they are strictly equivalent.
+
+\begin{equation*}
+Dice(Pred, Mask) = 2*\frac{|Pred \cap Mask |}{|Pred| + |Mask|} 
+\end{equation*}
+\vspace{10pt}
+
+\begin{lstlisting}[language=Python, caption=Keras backend Dice implementation]
+import keras.backend as K
+
+def dice(y_true, y_pred, smooth=1):
+    intersection = K.sum(y_true * y_pred, axis=[1,2,3])
+    union = K.sum(y_true, axis=[1,2,3]) + K.sum(y_pred, axis=[1,2,3])
+    dice = K.mean((2. * intersection + smooth)/(union + smooth), axis=0)
+    return dice
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python, caption=PyEDDL Dice implementation]
+from pyeddl._core  import Metric
+
+class Dice(Metric):
+    def __init__(self, threshold=0.5):
+        Metric.__init__(self, "py_dice")
+        self.threshold = threshold
+
+    def value(self, msk, out, smooth=1):   
+        out_np = out.getdata() >= self.threshold
+        msk_np = msk.getdata().astype(np.bool)
+        intersection = np.logical_and(msk_np, out_np)
+        
+        dice = 0
+        for i in range(msk_np.shape[0]):
+            union_i = np.sum(msk_np[i]) + np.sum(out_np[i])
+            dice += (2*np.sum(intersection[i])+smooth) / (union_i+smooth)
+
+        return dice
+
+\end{lstlisting}

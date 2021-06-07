@@ -3,46 +3,22 @@
 \lhead{\emph{Introduction}}
 
 
-In the last years, with the increase of the available biomedical data and the computation power in GPUs together with the appearance of new Artificial Intelligence (AI) models and techniques, it has existed and exists a growing interest and research effort on applying Artificial Intelligence to several biomedical tasks. In many of these tasks, most of them currently performed manually by doctors or medicine professionals, there have appeared automatic tools based on Artificial Intelligence models which show a performance close to the accuracy of a doctor. In other words, the application of Artificial Intelligence to medicine has proved to be useful and is definitely part of the future of the discipline. It will help by saving doctor's time, increasing the efficiency and the scope of the medicine professionals, helping them to provide more accurate diagnoses or even creating diagnoses by themselves and ultimately contributing to save lives.
+In the last years, with the increase of the available biomedical data and the computation power in GPUs together with the appearance of new Artificial Intelligence (AI) models and techniques, it has existed and exists a growing interest and research effort on applying Artificial Intelligence to several biomedical tasks. In many of these tasks, most of them currently performed manually by doctors or medicine professionals, there have appeared automatic tools based on Artificial Intelligence models which show a performance close to the accuracy of a doctor. It's undeniable that the application of Artificial Intelligence to medicine has proven to be useful and is definitely part of the future of the discipline. It will help by saving doctor's time, increasing the efficiency and the scope of the medicine professionals, helping them to provide more accurate diagnoses or even creating diagnoses by themselves. Ultimately, they will help save lives.
 
 Aware of this, the European Comission starts in 2019 the DeepHealth project. This aims to offer a unified framework completely adapted to exploit underlying heterogeneous High-Performance Computing (HPC) and Big Data architectures, framework to be assembled with state-of-the-art techniques in Deep Learning (DL) and Computer Vision. In particular,the project combines High-Performance Computing infrastructures with Deep Learning (DL) and Artificial Intelligence techniques to support biomedical applications that require the analysis of large and complex biomedical datasets and thus, new and more efficient ways of diagnosis, monitoring and treatment of diseases. The framework consist on two general purpopse libraries which are currently being developed, EDDL for Deep Learning computing infrastructure and ECVL for computer vision tools. 
 
-The goal of this project is to create state-of-the art Deep Learning models to detect of Multiple Sclerosis (MS) lesions in Magnetic Resonance Images (MRI) using EDDL library, analyzing its performance and comparing it with other commonly used libraries.
+The goal of this project is to create state-of-the art Deep Learning models to detect Multiple Sclerosis (MS) lesions in Magnetic Resonance Images (MRI) using EDDL library, analyzing its performance and comparing it with other commonly used libraries.
 
 
 
-\section{Multiple Sclerosis}
-
-Multiple sclerosis is the most common immune-mediated disorder affecting the central nervous system.
-% TODO: Continue introduction about Multiple Sclerosis
-
-
-
-\newpage
 \section{Multiple Sclerosis lesion segmentation}
 
 Multiple Sclerosis lesion segmentation consists on identifying in an MRI the damaged parts of the brain. This task plays a role in every stage of the disease, it has a huge importance in the patients for an early diagnose, for following the evolution of the disease and for measuring the effects of the treatment. However, this task has to be done manually by experts and involves analyzing a huge amount of data so it's highly time-consuming and prone to errors. Considering also the how relatively common this disease is, it's clear the importance of trying to optimize it. In fact, MS lesion segmentation was established as one of the main use cases for the development of the DeepHealth project. 
 
-MS lesion segmentation is a difficult task \textit{per se}, but even more given the difficulty and cost of obtaining and labeling the data. This makes almost impossible for anybody without the needed resources to access to a dataset and, in the best case, to have only a few samples, what makes almost any Machine Learning approach to be unfeasible. However, in recent years, within MICCAI2008 and MICCAI2016 challenges, there have been a big research effort which has led to the emergence of various different approaches and solutions. These include the usage of classical image segmentation networks\cite{MICCAI_MSSEG:2016}, Random Forests \cite{MICCAI_MSSEG:2016}, Hybrid Artificial Neural Networks \cite{MICCAI_MSSEG:2016}, Automated Multimodal Graph Cut \cite{MICCAI_MSSEG:2016}, unsupervised approaches using Rules and Level Sets \cite{MICCAI_MSSEG:2016}... 
+The problem with MS lesion segmentation is not only that it is a difficult task \textit{per se}, but also the difficulty and cost of obtaining and labeling the data. Few years ago there were no public datasets and now the existing ones count only  with a few samples, what makes almost any Machine Learning approach to be unfeasible. However, in recent years, within MICCAI2008 and MICCAI2016 challenges, there have been a big research effort which has led to the emergence of various different approaches and solutions. MICCAI2016 challeng proceedings \cite{MICCAI_MSSEG:2016} shows the usage of classical image segmentation networks, Random Forests, Hybrid Artificial Neural Networks, Automated Multimodal Graph Cut, unsupervised approaches using Rules and Level Sets... 
 
 In this project we'll focus our attention on the state-of-the-art approaches using 2-D and 3-D Convolutional Neural Networks (CNN). 
 
-We first analyze the application of 2-D CNN, starting with the U-Net as the standard for biomedical image segmentation, building, training, evaluating and profiling the model. Then we try a newer approach, the Double U-Net, which has proved to improve U-Net in some datasets, comparing both the performance of EDDL library with respect to a keras-tensorflow implementation and the models between themselves.
+We first analyze the application of 2-D CNN, starting with the U-Net \cite{UNET:2015} as the standard for biomedical image segmentation, building, training, evaluating and profiling the model. Then we try a newer approach, the Double U-Net \cite{DOUBLE_UNET:2020}, which has proven to improve U-Net for some tasks, comparing both the performance of EDDL library with respect to a keras-tensorflow implementation and the models between themselves.
 
-By last, we analyze the application of a cascade 3-D CNN. Evaluating and profiling the model and comparing it to an equivalent implementation with keras-tensorflow.
-
-% TODO: Reference to the different approaches for MS LS
-% TODO: Importance of the task (time consuming, errors...)
-% TODO: Importance of the task (evolution, life of patient)
-% TODO: MICCAI 2016 and MICCAI 2008 solutions proposed
-% TODO: One of the main use cases of the DeepHealth project.
-
-
-
-
-
-
-
-% TODO: Links to EDDL and ECVL
-% TODO: Links to DeepHealth project webpage
-% TODO: EDDL versions?
+By last, we analyze the application of a cascade 3-D CNN. Profiling the model and comparing it to an equivalent implementation with keras-tensorflow.
