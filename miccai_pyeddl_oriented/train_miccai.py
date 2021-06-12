@@ -19,8 +19,8 @@ MICCAI_PATH  = "/scrap/users/blazquez/datasets/miccai2016/"
 MEM_CHOICES = ("low_mem", "mid_mem", "full_mem")
 LOSS_FUNCTION = "binary_cross_entropy"
 METRIC = "mse"
-LEARNING_RATE = 0.0001
-PROFILE_CMD = 'nvidia-smi --query-gpu=power.draw,utilization.gpu,utilization.memory,temperature.gpu,pstate --format=csv,nounits --id=1 -lms 1000 -f ./profiles/GPUprofile_t4' 
+LEARNING_RATE = 0.000001
+PROFILE_CMD = 'nvidia-smi --query-gpu=power.draw,utilization.gpu,utilization.memory,temperature.gpu,pstate --format=csv,nounits --id=0 -lms 1000 -f ./profiles/GPUprofile_v100' 
 
 def main(args):
     in_ = eddl.Input([1, 256, 256])
@@ -32,12 +32,12 @@ def main(args):
         eddl.adam(LEARNING_RATE),  # Optimizer
         [LOSS_FUNCTION],           # Losses
         [METRIC],                  # Metrics
-        eddl.CS_GPU(g=[0,1], mem=args.mem)
+        eddl.CS_GPU(g=[1,0], mem=args.mem)
     )
 
-    #eddl.load(net, "double_unet_miccai.bin")
+    eddl.load(net, "double_unet_miccai.bin")
     eddl.summary(net)
-    eddl.setlogfile(net, "run/double_unet_t4.log")
+    eddl.setlogfile(net, "run/double_unet_tv100.log")
 
     x_train = Tensor.load(MICCAI_PATH+"bin/miccai_trX_oriented.bin")
     x_train.info()
@@ -52,7 +52,7 @@ def main(args):
     y_test = Tensor.load(MICCAI_PATH+"bin/miccai_tsY_oriented.bin")
     y_test.info()
 
-    for i in range(args.epochs):
+    for i in range(104, 104+args.epochs):
         print("\nEpoch %d/%d\n" % (i + 1, args.epochs))
         eddl.reset_loss(net)
         os.system(PROFILE_CMD + str(i) + '.csv &')
@@ -63,7 +63,7 @@ def main(args):
             print()
         os.system('kill $(ps aux | grep nvidia-smi | awk \'{print $2}\')')
 
-        eddl.save(net, "models/double_unet_miccai_"+str(i)+".bin")
+        eddl.save(net, "models/double_unet_miccai_v100_"+str(i)+".bin")
         eddl.evaluate(net, [x_test], [y_test])  
 
 
