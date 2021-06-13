@@ -7,13 +7,13 @@
 
 import numpy as np
 import tensorflow as tf
-import double_unet_keras as duk
+from double_unet_keras import build_model
 
 
-MICCAI_PATH = '/home/francisco/Documents/Universidad/5_Carrera/TFG_Computer_Science/miccai2016/'
+MICCAI_PATH = '/scrap/users/blazquez/datasets/miccai2016/'
 
 
-model = duk.build_model((256, 256, 1))
+model = build_model((256, 256, 1))
 model.compile(
     optimizer='nadam',
     loss     ='binary_crossentropy',

@@ -134,14 +134,13 @@ def ASPP(x, filter):
 
     return y
 
-def build_model(shape):
-    inputs = Input(shape)
-    x, skip_1 = encoder1(inputs)
+def build_model(in_):
+    x, skip_1 = encoder1(in_)
     x = ASPP(x, 64)
     x = decoder1(x, skip_1)
     outputs1 = output_block(x)
 
-    x = inputs * outputs1
+    x = in_ * outputs1
 
     x, skip_2 = encoder2(x)
     x = ASPP(x, 64)
@@ -150,13 +149,13 @@ def build_model(shape):
     
     # In case we want to get also the partial output    
     #outputs = Concatenate()([outputs1, outputs2])
-    #model = Model(inputs, outputs)
+    #model = Model(in_, outputs)
 
     # In case we just want the final output
-    model = Model(inputs, outputs2)
+    #model = Model(in_, outputs2)
 
-    return model
+    return outputs2
 
 if __name__ == "__main__":
-    model = build_model((192, 256, 3))
+    model = build_model((256, 256, 1))
     model.summary()
