@@ -1,3 +1,12 @@
+# Francisco Javier Blázquez Martínez ~ francisco.blazquezmartinez@epfl.ch
+#
+# École polytechnique fédérale de Lausanne, Switzerland
+# Deephealth project
+#
+# Description:
+# Dice metrics for the validation dataset
+
+
 import numpy as np
 import pyeddl.eddl as eddl
 from pyeddl.tensor import Tensor
@@ -5,7 +14,7 @@ from pyeddl._core  import Metric
 from double_unet import double_unet
 
 
-NUM_MODELS = 80
+NUM_MODELS = 30
 MICCAI_PATH = "/scrap/users/blazquez/datasets/miccai2016/"
 THRESHOLD = 0.5
 
