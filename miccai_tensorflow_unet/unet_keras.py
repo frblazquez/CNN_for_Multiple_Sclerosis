@@ -3,6 +3,7 @@
 # École polytechnique fédérale de Lausanne, Switzerland
 #
 # Description:
+# U-Net model implementation with keras-tensorflow.
 
 from tensorflow.keras.models import Model
 from tensorflow.keras.optimizers import Adam
@@ -10,7 +11,6 @@ from tensorflow.keras.layers import Conv2D, Input, MaxPooling2D, Dropout, concat
 
 def unet(in_):
 
-    #inputs = Input(shape=[image_size, image_size, 1])
     conv1 = Conv2D(64, 3, activation = 'relu', padding = 'same')(in_)
     conv1 = Conv2D(64, 3, activation = 'relu', padding = 'same')(conv1)
     pool1 = MaxPooling2D(pool_size=(2, 2))(conv1)
